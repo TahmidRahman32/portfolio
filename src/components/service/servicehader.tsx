@@ -50,7 +50,7 @@ const ServicesHeader = () => {
          transition: {
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.42, 0, 0.58, 1], // cubic-bezier equivalent for easeInOut
          },
       },
    };
