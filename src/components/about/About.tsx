@@ -2,7 +2,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import profilePic from "../../../public/image/portfolio-2.png"; 
+import profilePic from "../../../public/image/portfolio-2-rezise.png"; 
 import {  Bitcoin, Link, Zap, Globe } from "lucide-react";
 import ChainCarousel, { ChainItem } from "./SkillCarousel";
 
