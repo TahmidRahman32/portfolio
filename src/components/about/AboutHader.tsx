@@ -90,7 +90,7 @@ const AboutHeader = () => {
             </motion.div>
 
             {/* Stats Section */}
-            <motion.div  className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
+            <motion.div  className="md:grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto md:mb-16 hidden">
                {[
                   { number: "3+", label: "Years Experience" },
                   { number: "50+", label: "Projects Completed" },

@@ -125,7 +125,7 @@ const ViewReview = () => {
    }
 
    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-[#490b09] to-slate-900 relative overflow-hidden">
+      <div className=" container mx-auto rounded-2xl bg-gradient-to-br from-slate-900 via-[#490b09] to-slate-900 relative overflow-hidden">
          {/* Animated Background Elements */}
          <div className="absolute inset-0">
             <motion.div

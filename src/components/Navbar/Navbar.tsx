@@ -34,7 +34,7 @@ export default function Navbar() {
                   </div>
                </div>
                {/* Middle area */}
-               <SparkleNavbar items={["Home", "About", "Services", "Contact"]} routes={["/", "/about", "/services", "/contact"]} color="#7e0d09" />
+               <SparkleNavbar items={["Home", "About", "Services", "Contact","Resume"]} routes={["/", "/about", "/services", "/contact","/resume"]} color="#7e0d09" />
                {/* Right side */}
                <div className="flex flex-1 items-center justify-end gap-4">
                   <div className="flex items-center gap-2">
