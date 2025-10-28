@@ -1,5 +1,4 @@
-import Image from "next/image";
-import cvImage from "../../../../public/image/portfolio-2.png";
+
 import { Button } from "@/components/ui/button";
 import { Facebook, Github, Instagram, LucideLinkedin} from "lucide-react";
 import { AuroraTextEffect } from "../nameSection/UiStyle";
