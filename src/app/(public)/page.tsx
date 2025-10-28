@@ -39,7 +39,7 @@ const HomePage = () => {
   return (
      <div>
         <HeroSection></HeroSection>
-        <Carousel items={chainData} visibleItemCount={7} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
+        <Carousel items={chainData} visibleItemCount={3} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
         <ProjectsSection></ProjectsSection>
      </div>
   );
