@@ -68,7 +68,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
                   type="text"
                   value={currentProject.name}
                   onChange={(e) => setCurrentProject((prev) => ({ ...prev, name: e.target.value }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Project Name"
                />
             </div>
@@ -79,7 +79,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
                   type="url"
                   value={currentProject.link}
                   onChange={(e) => setCurrentProject((prev) => ({ ...prev, link: e.target.value }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="https://github.com/yourname/project"
                />
             </div>
@@ -89,7 +89,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
                <textarea
                   value={currentProject.description}
                   onChange={(e) => setCurrentProject((prev) => ({ ...prev, description: e.target.value }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   placeholder="Describe the project, your role, and key features..."
                   rows={4}
                />
@@ -104,7 +104,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
                            type="text"
                            value={technology}
                            onChange={(e) => updateTechnology(index, e.target.value)}
-                           className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                           className="flex-1 p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                            placeholder="Technology or tool used..."
                         />
                         {currentProject.technologies.length > 1 && (

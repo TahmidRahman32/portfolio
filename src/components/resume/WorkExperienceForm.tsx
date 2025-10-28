@@ -72,7 +72,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                      type="text"
                      value={currentExperience.company}
                      onChange={(e) => setCurrentExperience((prev) => ({ ...prev, company: e.target.value }))}
-                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="Company Name"
                   />
                </div>
@@ -83,7 +83,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                      type="text"
                      value={currentExperience.position}
                      onChange={(e) => setCurrentExperience((prev) => ({ ...prev, position: e.target.value }))}
-                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="Job Title"
                   />
                </div>
@@ -96,7 +96,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                      type="month"
                      value={currentExperience.startDate}
                      onChange={(e) => setCurrentExperience((prev) => ({ ...prev, startDate: e.target.value }))}
-                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                </div>
 
@@ -108,7 +108,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                         value={currentExperience.endDate}
                         onChange={(e) => setCurrentExperience((prev) => ({ ...prev, endDate: e.target.value, current: false }))}
                         disabled={currentExperience.current}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                        className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
                      />
                      <label className="flex items-center gap-2 whitespace-nowrap">
                         <input
@@ -134,7 +134,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                <textarea
                   value={currentExperience.description}
                   onChange={(e) => setCurrentExperience((prev) => ({ ...prev, description: e.target.value }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   placeholder="Describe your role and responsibilities..."
                   rows={3}
                />
@@ -149,7 +149,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                            type="text"
                            value={achievement}
                            onChange={(e) => updateAchievement(index, e.target.value)}
-                           className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                           className="flex-1 p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                            placeholder="Describe an achievement or accomplishment..."
                         />
                         {currentExperience.achievements.length > 1 && (

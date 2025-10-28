@@ -77,20 +77,20 @@ const AboutHeader = () => {
          </div>
 
          {/* Main Content */}
-         <motion.div  className="relative z-10 container mx-auto px-4 py-16 text-center text-white">
+         <motion.div className="relative z-10 container mx-auto px-4 py-16 text-center text-white">
             {/* Title Section */}
-            <motion.div  className="mb-12">
+            <motion.div className="mb-12">
                <motion.h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
                   About Me
                </motion.h1>
                <motion.div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mb-8" initial={{ width: 0 }} animate={inView ? { width: 96 } : { width: 0 }} transition={{ delay: 0.5, duration: 1 }} />
-               <motion.p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-200" >
+               <motion.p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-200">
                   Passionate Full Stack Developer crafting digital experiences that blend <span className="text-cyan-400 font-semibold">innovation</span> with <span className="text-purple-400 font-semibold">functionality</span>
                </motion.p>
             </motion.div>
 
             {/* Stats Section */}
-            <motion.div  className="md:grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto md:mb-16 hidden">
+            <motion.div className="md:grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto md:mb-16 hidden">
                {[
                   { number: "3+", label: "Years Experience" },
                   { number: "50+", label: "Projects Completed" },
@@ -116,14 +116,14 @@ const AboutHeader = () => {
             </motion.div>
 
             {/* CTA Section */}
-            <motion.div  className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                <motion.button
                   whileHover={{
                      scale: 1.05,
                      boxShadow: "0 0 30px rgba(34, 211, 238, 0.5)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                  className="px-8 py-4 bg-gradient-to-r from-[#7e0d09] to-blue-600 rounded-full font-semibold text-white shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
                >
                   Download Resume
                </motion.button>

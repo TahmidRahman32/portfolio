@@ -188,7 +188,7 @@ export default function ResumeBuilder() {
                   <span className="text-sm font-bold text-blue-600">{completion.percentage}%</span>
                </div>
                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gradient-to-r from-green-500 to-blue-500 h-3 rounded-full transition-all duration-500 ease-out" style={{ width: `${completion.percentage}%` }}></div>
+                  <div className="bg-gradient-to-r from-[#7e0d09] to-blue-500 h-3 rounded-full transition-all duration-500 ease-out" style={{ width: `${completion.percentage}%` }}></div>
                </div>
                <p className="text-xs text-gray-500 mt-2">
                   {completion.completed} of {completion.total} sections completed
@@ -258,7 +258,7 @@ export default function ResumeBuilder() {
                         <button
                            onClick={handleDownloadPDF}
                            disabled={isGeneratingPDF}
-                           className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl disabled:shadow-none disabled:cursor-not-allowed"
+                           className="w-full bg-gradient-to-r from-[#7e0d09] to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl disabled:shadow-none disabled:cursor-not-allowed"
                         >
                            {isGeneratingPDF ? (
                               <>
@@ -330,7 +330,7 @@ export default function ResumeBuilder() {
                                        value={resumeData.summary}
                                        onChange={(e) => updateSummary(e.target.value)}
                                        placeholder="Example: Results-driven software engineer with 5+ years of experience in full-stack development. Specialized in React, Node.js, and cloud technologies. Proven track record of delivering scalable solutions that improve performance by 40%..."
-                                       className="w-full h-40 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all duration-200"
+                                       className="w-full h-40 text-gray-500 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all duration-200"
                                     />
                                     <div className="flex justify-between text-xs text-gray-500 mt-2">
                                        <span>Recommended: 2-3 paragraphs</span>

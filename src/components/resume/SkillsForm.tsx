@@ -59,7 +59,7 @@ export default function SkillsForm({ skills, onChange, errors }: SkillsFormProps
                      type="text"
                      value={currentSkill.name}
                      onChange={(e) => setCurrentSkill((prev) => ({ ...prev, name: e.target.value }))}
-                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="e.g., JavaScript, React, Project Management"
                   />
                </div>
@@ -69,7 +69,7 @@ export default function SkillsForm({ skills, onChange, errors }: SkillsFormProps
                   <select
                      value={currentSkill.category}
                      onChange={(e) => setCurrentSkill((prev) => ({ ...prev, category: e.target.value }))}
-                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                      {skillCategories.map((category) => (
                         <option key={category} value={category}>

@@ -3,6 +3,8 @@ import ChainCarousel, { ChainItem } from "@/components/about/SkillCarousel";
 import Carousel from "@/components/HeroSection/container/Carousel";
 import ViewReview from "@/components/HeroSection/container/Review";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import ResumePromo from "@/components/HeroSection/ResumePromo";
+import TemplatesPage from "@/components/HeroSection/Tamplete";
 import ProjectsSection from "@/components/projects/Project";
 import { Bitcoin, Globe, Link, Zap } from "lucide-react";
 const chainData: ChainItem[] = [
@@ -61,8 +63,10 @@ const HomePage = () => {
   return (
      <div>
         <HeroSection></HeroSection>
+         <ResumePromo></ResumePromo>
         <Carousel items={chainData} visibleItemCount={3} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
          <ViewReview></ViewReview>
+      
         <ProjectsSection></ProjectsSection>
      </div>
   );
