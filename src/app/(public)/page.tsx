@@ -1,6 +1,7 @@
 "use client";
 import ChainCarousel, { ChainItem } from "@/components/about/SkillCarousel";
 import Carousel from "@/components/HeroSection/container/Carousel";
+import ViewReview from "@/components/HeroSection/container/Review";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import ProjectsSection from "@/components/projects/Project";
 import { Bitcoin, Globe, Link, Zap } from "lucide-react";
@@ -33,6 +34,27 @@ const chainData: ChainItem[] = [
       details: "Bitcoin L2 • Instant payments",
       // No logo - will use icon
    },
+   {
+      id: 5,
+      name: "Lightning Network",
+      icon: Zap,
+      details: "Bitcoin L2 • Instant payments",
+      // No logo - will use icon
+   },
+   {
+      id: 6,
+      name: "Lightning Network",
+      icon: Zap,
+      details: "Bitcoin L2 • Instant payments",
+      // No logo - will use icon
+   },
+   {
+      id: 7,
+      name: "Lightning Network",
+      icon: Zap,
+      details: "Bitcoin L2 • Instant payments",
+      // No logo - will use icon
+   },
 ];
 
 const HomePage = () => {
@@ -40,6 +62,7 @@ const HomePage = () => {
      <div>
         <HeroSection></HeroSection>
         <Carousel items={chainData} visibleItemCount={3} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
+         <ViewReview></ViewReview>
         <ProjectsSection></ProjectsSection>
      </div>
   );
