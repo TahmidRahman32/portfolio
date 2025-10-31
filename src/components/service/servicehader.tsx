@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeInOut, easeOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const ServicesHeader = () => {
@@ -27,7 +27,7 @@ const ServicesHeader = () => {
          y: 0,
          transition: {
             duration: 0.8,
-            ease: "easeOut", // Fixed: removed array, using string
+            ease: easeOut, // Fixed: removed array, using string
          },
       },
    };
@@ -39,7 +39,7 @@ const ServicesHeader = () => {
          scale: 1,
          transition: {
             duration: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94], // Fixed: using cubic-bezier array
+            ease: easeInOut, // Fixed: using cubic-bezier array
          },
       },
    };
@@ -50,7 +50,7 @@ const ServicesHeader = () => {
          transition: {
             duration: 6,
             repeat: Infinity,
-            ease: [0.42, 0, 0.58, 1], // cubic-bezier equivalent for easeInOut
+            ease: easeInOut, // cubic-bezier equivalent for easeInOut
          },
       },
    };
@@ -89,12 +89,7 @@ const ServicesHeader = () => {
    const technologies = ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "PostgreSQL", "Tailwind CSS", "Framer Motion", "GraphQL", "AWS", "Vercel"];
 
    return (
-      <motion.section
-         ref={ref}
-         initial="hidden"
-         animate={inView ? "visible" : "hidden"}
-         className="relative container mx-auto rounded-3xl my-4 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-[#490b09] to-purple-900"
-      >
+      <motion.section ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} className="relative container mx-auto rounded-3xl my-4 flex items-center justify-center overflow-hidden bg-[#4b1614] dark:bg-[#4b1614]">
          {/* Animated Background Elements */}
          <div className="absolute inset-0 overflow-hidden">
             {/* Code-like Grid Pattern */}

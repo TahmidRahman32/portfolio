@@ -41,6 +41,35 @@ export default function ResumeBuilder() {
    const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
    const [errors, setErrors] = useState<Record<string, string>>({});
 
+   const handleDownloadPDF = async () => {
+      // Add this line to log resume data when PDF button is clicked
+      console.log("Resume Data:", resumeData);
+
+      if (!validateResume()) {
+         const firstErrorSection = Object.keys(errors)[0];
+         setActiveSection(firstErrorSection);
+         return;
+      }
+
+      setIsGeneratingPDF(true);
+      try {
+         const blob = await pdf(<ResumePDFDocument data={resumeData} template={selectedTemplate} />).toBlob();
+         const url = URL.createObjectURL(blob);
+         const link = document.createElement("a");
+         link.href = url;
+         link.download = `${resumeData.personalInfo.fullName.replace(/\s+/g, "_")}_Resume.pdf` || "resume.pdf";
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+         URL.revokeObjectURL(url);
+      } catch (error) {
+         console.error("PDF generation failed:", error);
+         setErrors({ pdf: "Failed to generate PDF. Please try again." });
+      } finally {
+         setIsGeneratingPDF(false);
+      }
+   };
+
    const updatePersonalInfo = useCallback(
       (info: PersonalInfo) => {
          setResumeData((prev) => ({ ...prev, personalInfo: info }));
@@ -108,7 +137,7 @@ export default function ResumeBuilder() {
       return Object.keys(newErrors).length === 0;
    };
 
-   const handleDownloadPDF = async () => {
+   const handleStorePDF = async () => {
       if (!validateResume()) {
          const firstErrorSection = Object.keys(errors)[0];
          setActiveSection(firstErrorSection);
@@ -126,6 +155,7 @@ export default function ResumeBuilder() {
          link.click();
          document.body.removeChild(link);
          URL.revokeObjectURL(url);
+         console.log(blob);
       } catch (error) {
          console.error("PDF generation failed:", error);
          setErrors({ pdf: "Failed to generate PDF. Please try again." });
@@ -166,7 +196,7 @@ export default function ResumeBuilder() {
    const completion = getCompletionStatus();
 
    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-300 to-input py-8">
+      <div className="min-h-screen bg-white/50 dark:bg-slate-700/50 py-8">
          <div className="px-4 ">
             {/* Header */}
             <div className="text-center mb-12">
@@ -178,19 +208,19 @@ export default function ResumeBuilder() {
                   </div>
                   <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Professional Resume Builder</h1>
                </div>
-               <p className="text-lg text-accent max-w-2xl mx-auto">Create a professional resume in minutes. Choose a template and fill in your details.</p>
+               <p className="text-lg text-foreground max-w-2xl mx-auto">Create a professional resume in minutes. Choose a template and fill in your details.</p>
             </div>
 
             {/* Progress Bar */}
-            <div className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-gray-100">
+            <div className="bg-purple-200/20 dark:bg-purple-400/10 rounded-2xl shadow-xl p-6 mb-8 border border-gray-100">
                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-semibold text-gray-700">Resume Completion</span>
-                  <span className="text-sm font-bold text-blue-600">{completion.percentage}%</span>
+                  <span className="text-sm font-semibold text-foreground">Resume Completion</span>
+                  <span className="text-md font-bold text-green-500">{completion.percentage}%</span>
                </div>
                <div className="w-full bg-gray-200 rounded-full h-3">
                   <div className="bg-gradient-to-r from-[#7e0d09] to-blue-500 h-3 rounded-full transition-all duration-500 ease-out" style={{ width: `${completion.percentage}%` }}></div>
                </div>
-               <p className="text-xs text-gray-500 mt-2">
+               <p className="text-xs text-foreground mt-2">
                   {completion.completed} of {completion.total} sections completed
                </p>
             </div>
@@ -213,9 +243,9 @@ export default function ResumeBuilder() {
             <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
                {/* Sidebar Navigation */}
                <div className="xl:col-span-1">
-                  <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100 sticky top-8">
-                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                        <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="bg-purple-200/20 dark:bg-slate-400/40 rounded-2xl shadow-xl p-6 border border-gray-100 sticky top-8">
+                     <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                         Sections
@@ -229,12 +259,12 @@ export default function ResumeBuilder() {
                               <button
                                  key={section.id}
                                  onClick={() => setActiveSection(section.id)}
-                                 className={`w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center gap-3 group ${isActive ? "bg-blue-50 border border-blue-200 shadow-sm" : "hover:bg-gray-50 border border-transparent"} ${
+                                 className={`w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center gap-3 group ${isActive ? "bg-blue-50 border border-blue-200 shadow-sm" : "hover:bg-gray-500 border border-transparent"} ${
                                     hasError ? "border-red-200 bg-red-50" : ""
                                  }`}
                               >
                                  <span className="text-lg">{section.icon}</span>
-                                 <span className={`font-medium flex-1 ${isActive ? "text-blue-700" : "text-gray-700"} ${hasError ? "text-red-700" : ""}`}>{section.label}</span>
+                                 <span className={`font-medium flex-1 ${isActive ? "text-blue-700" : "text-foreground"} ${hasError ? "text-red-700" : ""}`}>{section.label}</span>
                                  {hasError && <div className="w-2 h-2 bg-red-500 rounded-full"></div>}
                               </button>
                            );
@@ -256,7 +286,10 @@ export default function ResumeBuilder() {
                      {/* Download Button */}
                      <div className="mt-6 pt-6 border-t border-gray-200">
                         <button
-                           onClick={handleDownloadPDF}
+                           onClick={() => {
+                              handleDownloadPDF();
+                              handleStorePDF();
+                           }}
                            disabled={isGeneratingPDF}
                            className="w-full bg-gradient-to-r from-[#7e0d09] to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl disabled:shadow-none disabled:cursor-not-allowed"
                         >
@@ -283,12 +316,12 @@ export default function ResumeBuilder() {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                      {/* Form Section */}
                      <div className="lg:col-span-2">
-                        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                        <div className="bg-purple-200/20 dark:bg-slate-400/20 rounded-2xl shadow-xl p-8 border border-gray-100">
                            {/* Section Header */}
                            <div className="flex items-center justify-between mb-8">
                               <div>
-                                 <h2 className="text-2xl font-bold text-gray-800">{sectionButtons.find((s) => s.id === activeSection)?.label}</h2>
-                                 <p className="text-gray-600 mt-1">{getSectionDescription(activeSection)}</p>
+                                 <h2 className="text-2xl font-bold text-foreground">{sectionButtons.find((s) => s.id === activeSection)?.label}</h2>
+                                 <p className="text-foreground mt-1">{getSectionDescription(activeSection)}</p>
                               </div>
                               <div className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
                                  Step {sectionButtons.findIndex((s) => s.id === activeSection) + 1} of {sectionButtons.length}
@@ -323,16 +356,16 @@ export default function ResumeBuilder() {
                               {activeSection === "summary" && (
                                  <div>
                                     <div className="mb-4">
-                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Professional Summary</label>
-                                       <p className="text-sm text-gray-600 mb-3">Write a compelling summary that highlights your key achievements and career objectives.</p>
+                                       <label className="block text-sm font-semibold text-foreground mb-2">Professional Summary</label>
+                                       <p className="text-sm text-foreground mb-3">Write a compelling summary that highlights your key achievements and career objectives.</p>
                                     </div>
                                     <textarea
                                        value={resumeData.summary}
                                        onChange={(e) => updateSummary(e.target.value)}
                                        placeholder="Example: Results-driven software engineer with 5+ years of experience in full-stack development. Specialized in React, Node.js, and cloud technologies. Proven track record of delivering scalable solutions that improve performance by 40%..."
-                                       className="w-full h-40 text-gray-500 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all duration-200"
+                                       className="w-full h-40 text-foreground p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all duration-200"
                                     />
-                                    <div className="flex justify-between text-xs text-gray-500 mt-2">
+                                    <div className="flex justify-between text-xs text-foreground mt-2">
                                        <span>Recommended: 2-3 paragraphs</span>
                                        <span>{resumeData.summary.length}/500 characters</span>
                                     </div>
@@ -358,7 +391,7 @@ export default function ResumeBuilder() {
                                     }
                                  }}
                                  disabled={activeSection === "template"}
-                                 className="px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center gap-2"
+                                 className="px-6 py-3 border border-gray-300 text-foreground rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center gap-2"
                               >
                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -387,9 +420,9 @@ export default function ResumeBuilder() {
                      {/* Preview Section */}
                      <div className="lg:col-span-1">
                         <div className="sticky top-8">
-                           <div className="bg-white rounded-2xl shadow-xl p-6 mb-4 border border-gray-100">
+                           <div className="bg-purple-200/20 dark:bg-purple-400/10 rounded-2xl shadow-xl p-6 mb-4 border border-gray-100">
                               <div className="flex items-center justify-between mb-4">
-                                 <h3 className="text-lg font-semibold text-gray-800">Live Preview</h3>
+                                 <h3 className="text-lg font-semibold text-foreground">Live Preview</h3>
                                  <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{TEMPLATES[selectedTemplate].name} • A4</div>
                               </div>
                               <div className="border-2 border-dashed border-gray-200 rounded-lg p-2 bg-gray-50">

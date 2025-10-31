@@ -45,7 +45,7 @@ export default function EducationForm({ education, onChange, errors }: Education
          <h3 className="text-xl font-semibold mb-4">Education</h3>
 
          {/* Current Education Form */}
-         <div className="space-y-4 mb-6 p-6 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50">
+         <div className="space-y-4 mb-6 p-6 border-2 border-dashed border-gray-200 rounded-xl bg-gray-100">
             <h4 className="font-semibold text-gray-700">Add New Education</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                <div>

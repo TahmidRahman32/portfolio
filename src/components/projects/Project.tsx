@@ -163,7 +163,7 @@ const ProjectsSection: React.FC = () => {
    }
 
    return (
-      <section id="projects" className="py-16 px-4 mx-auto my-16 container rounded-2xl bg-gradient-to-br from-[#490b09]   to-blue-900">
+      <section id="projects" className="py-16 px-4 mx-auto my-16 container rounded-2xl bg-[#4b1614] dark:bg-[#4b1614]">
          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">My Projects</h2>
             <p className="text-center text-input  mb-12 max-w-2xl mx-auto">A collection of my recent work and personal projects</p>

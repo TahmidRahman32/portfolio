@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
@@ -103,7 +103,7 @@ const ViewReview = () => {
          y: 0,
          transition: {
             duration: 0.6,
-            ease: "easeOut",
+            ease: easeOut,
          },
       },
    };
@@ -115,7 +115,7 @@ const ViewReview = () => {
    // Loading State
    if (isLoading) {
       return (
-         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+         <div className="min-h-screen bg-[#4b1614] dark:bg-[#4b1614] flex items-center justify-center">
             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
                <div className="w-16 h-16 border-4 border-purple-400 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
                <p className="text-white text-xl font-light">Loading amazing reviews...</p>
@@ -125,7 +125,7 @@ const ViewReview = () => {
    }
 
    return (
-      <div className=" container mx-auto rounded-2xl bg-gradient-to-br from-slate-900 via-[#490b09] to-slate-900 relative overflow-hidden">
+      <div className=" container mx-auto rounded-t-2xl mb-1 bg-[#4b1614] dark:bg-[#4b1614] relative overflow-hidden">
          {/* Animated Background Elements */}
          <div className="absolute inset-0">
             <motion.div
@@ -178,7 +178,7 @@ const ViewReview = () => {
                </motion.p>
             </motion.div>
 
-            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="max-w-7xl mx-auto">
+            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto">
                {reviews.length === 0 ? (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center text-white text-xl">
                      No reviews yet. Be the first to leave a review!

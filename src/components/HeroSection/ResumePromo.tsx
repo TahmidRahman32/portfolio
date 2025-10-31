@@ -230,7 +230,7 @@ export default function ResumePromo() {
    const stats: Stat[] = [
       { value: "4", label: "Templates", color: "text-blue-600" },
       { value: "A4", label: "Format", color: "text-green-600" },
-      { value: "PDF", label: "Export", color: "text-purple-600" },
+      { value: "PDF", label: "Export", color: "text-yellow-400" },
    ];
 
    // Auto-rotate features
@@ -261,7 +261,7 @@ export default function ResumePromo() {
    }, []);
 
    return (
-      <section id="resume-promo" ref={sectionRef} className="relative py-20 overflow-hidden bg-gradient-to-br from-[#7e0d09] via-blue-50/80 to-blue-900 container mx-auto px-4 rounded-2xl">
+      <section id="resume-promo" ref={sectionRef} className="relative py-20 overflow-hidden bg-[#4b1614] dark:bg-[#4b1614] container mx-auto px-4 rounded-2xl">
          {/* Animated Background Elements */}
          <div className="absolute inset-0 overflow-hidden">
             <motion.div variants={variants} className="absolute top-20 left-10 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20" animate="pulse" />
@@ -270,10 +270,9 @@ export default function ResumePromo() {
 
             {/* Scroll Progress Bar */}
             <motion.div
-               className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 origin-left z-50"
+               className="absolute top-0 left-0 right-0 h-1  origin-left z-50"
                style={{ scaleX: scrollYProgress }}
                variants={scrollProgressVariants}
-
                initial="hidden"
                whileInView="visible"
                viewport={{ once: true }}
@@ -306,7 +305,7 @@ export default function ResumePromo() {
                   y: textY,
                }}
             >
-               <motion.div  className="inline-flex flex-col items-center gap-6 mb-8">
+               <motion.div className="inline-flex flex-col items-center gap-6 mb-8">
                   <motion.div
                      variants={floatingVariants}
                      whileHover={{
@@ -326,11 +325,11 @@ export default function ResumePromo() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6"
+                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-sky-400 via-purple-600 to-green-600 bg-clip-text text-transparent mb-6"
                      >
                         Professional Resume Builder
                      </motion.h2>
-                     <motion.p variants={scrollTextVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} transition={{ delay: 0.2 }} className="text-2xl text-gray-600 font-light">
+                     <motion.p variants={scrollTextVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} transition={{ delay: 0.2 }} className="text-2xl text-gray-400 font-light">
                         Create stunning resumes that get you hired
                      </motion.p>
                   </div>
@@ -342,10 +341,10 @@ export default function ResumePromo() {
                <motion.div initial="hidden" animate={isVisible ? "visible" : "hidden"} variants={containerVariants} className="space-y-10">
                   {/* Main Description with Scroll Animation */}
                   <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-6">
-                     <motion.h3 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                        Build Your Perfect Resume in <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">Minutes</span>
+                     <motion.h3 className="text-4xl md:text-5xl font-bold text-gray-300 leading-tight" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                        Build Your Perfect Resume in <span className="text-transparent bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text">Minutes</span>
                      </motion.h3>
-                     <motion.p className="text-xl text-gray-600 leading-relaxed font-light" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+                     <motion.p className="text-xl text-gray-400 leading-relaxed font-light" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
                         Create a professional, A4-formatted resume that stands out to employers. No design skills needed - just fill in your details and download a polished PDF ready for job applications.
                      </motion.p>
                   </motion.div>
@@ -390,7 +389,7 @@ export default function ResumePromo() {
                      {stats.map((stat: Stat, index: number) => (
                         <motion.div
                            key={index}
-                           className="text-center group cursor-pointer"
+                           className="text-center group cursor-pointer  p-4 hover:bg-white/20 transition-colors duration-300 rounded-2xl border-2 shadow-2xl border-gray-400"
                            whileHover={{ scale: 1.1 }}
                            whileTap={{ scale: 0.95 }}
                            initial={{ opacity: 0, y: 20 }}
@@ -399,7 +398,7 @@ export default function ResumePromo() {
                            transition={{ delay: index * 0.1 }}
                         >
                            <div className={`text-4xl font-black ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>{stat.value}</div>
-                           <div className="text-gray-600 font-medium uppercase tracking-wide text-sm">{stat.label}</div>
+                           <div className="text-gray-300 font-medium uppercase tracking-wide text-sm">{stat.label}</div>
                         </motion.div>
                      ))}
                   </motion.div>
@@ -409,7 +408,7 @@ export default function ResumePromo() {
                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                         <Link
                            href="/resume"
-                           className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-lg rounded-2xl shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-purple-500/40 transition-all duration-300 transform"
+                           className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-blue-600 to-[#8d120e] hover:from-blue-700 hover:to-purple-700 text-white font-bold text-lg rounded-2xl shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-purple-500/40 transition-all duration-300 transform"
                            onMouseEnter={() => setIsHovered(true)}
                            onMouseLeave={() => setIsHovered(false)}
                         >
@@ -423,7 +422,7 @@ export default function ResumePromo() {
                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
                         <Link
                            href="/template"
-                           className="inline-flex items-center justify-center px-10 py-5 border-2 border-gray-300 text-gray-700 font-bold text-lg rounded-2xl hover:border-gray-400 hover:bg-white/50 hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+                           className="inline-flex items-center justify-center px-10 py-5 border-2 border-gray-300 text-gray-300 font-bold text-lg rounded-2xl hover:border-gray-400 hover:bg-white/50 hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
                         >
                            View Templates
                         </Link>

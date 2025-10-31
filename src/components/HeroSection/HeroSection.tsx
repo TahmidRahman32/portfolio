@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import image1 from "../../../public/image/web-profile-Photoroom.png";
-import { Name } from "./nameSection/Name";
+
 import Box1 from "./container/Box1";
 
 // Register ScrollTrigger
@@ -65,7 +65,6 @@ const HeroSection = () => {
             ease: "sine.inOut",
          });
 
-         
          // Image hover effect
          if (imageRef.current) {
             imageRef.current.addEventListener("mouseenter", () => {
@@ -96,7 +95,7 @@ const HeroSection = () => {
    }, []);
 
    return (
-      <div ref={sectionRef} className="container mx-auto justify-between items-center grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-4 p-4 bg-[#4b1614] my-6 rounded-3xl shadow-2xl">
+      <div ref={sectionRef} className="container mx-auto justify-between items-center grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-4 p-4 bg-[#4b1614] dark:bg-[#4b1614] my-6 rounded-3xl ">
          {/* Left Column - Box1 */}
          <div className="flex flex-col justify-between">
             <div className="transform transition-all duration-500 hover:scale-105">
@@ -118,11 +117,7 @@ const HeroSection = () => {
 
             {/* Text Content */}
             <div ref={textRef} className="text-center mt-1 font-serif lg:w-[450px]">
-               <h1 className="text-xl font-bold">
-                  <Name fontSize="lg:text-3xl" fontWeight="font-extrabold" color="text-white" align="center" delay={0.5} duration={3} letterSpacing="tracking-wider">
-                     Gaziur Rahman Tahmid
-                  </Name>
-               </h1>
+               <h1 className="text-3xl font-bold text-white">Gaziur Rahman Tahmid</h1>
                <h5 className="text-3xl font-primary-f font-bold font-primaryG bg-gradient-to-r from-[#511364] via-[#A08D6D] to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">Full Stack</h5>
                <p className="text-white">Developer</p>
             </div>

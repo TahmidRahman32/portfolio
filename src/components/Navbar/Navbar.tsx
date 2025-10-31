@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "../ThemeToggle";
 import SparkleNavbar from "../lightswind/sparkle-navbar";
+import Link from "next/link";
 
 const teams = ["Acme Inc.", "coss.com", "Junon"];
 
@@ -34,7 +35,13 @@ export default function Navbar() {
                   </div>
                </div>
                {/* Middle area */}
-               <SparkleNavbar items={["Home", "About", "Services", "Contact","Resume"]} routes={["/", "/about", "/services", "/contact","/resume"]} color="#7e0d09" />
+               {/* <div className="hidden md:flex md:flex-1 md:justify-center gap-4">
+                  <Link href="/">Home</Link>
+                  <Link href="/about">About</Link>
+                  <Link href="/services">Services</Link>
+                  <Link href="/contact">Contact</Link>
+               </div> */}
+               <SparkleNavbar items={["Home", "About", "Services", "Contact", "Resume", "Dashboard"]} routes={["/", "/about", "/services", "/contact", "/resume", "/dashboard"]} color="#7e0d09" />
                {/* Right side */}
                <div className="flex flex-1 items-center justify-end gap-4">
                   <div className="flex items-center gap-2">

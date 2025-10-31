@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle, Clock } from "lucide-react";
 
 const ContactPage = () => {
@@ -63,7 +63,7 @@ const ContactPage = () => {
          y: 0,
          transition: {
             duration: 0.6,
-            ease: "easeOut",
+            ease: easeOut,
          },
       },
    };

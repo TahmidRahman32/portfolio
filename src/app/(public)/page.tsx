@@ -66,8 +66,6 @@ const HomePage = () => {
          <ResumePromo></ResumePromo>
         <Carousel items={chainData} visibleItemCount={3} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
          <ViewReview></ViewReview>
-      
-        <ProjectsSection></ProjectsSection>
      </div>
   );
 };

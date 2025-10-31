@@ -27,7 +27,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
       <div className="space-y-6">
          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-               <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+               <label className="block text-sm font-semibold text-accent-foreground mb-2">Full Name *</label>
                <input
                   type="text"
                   value={data.fullName}
@@ -40,7 +40,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
             </div>
 
             <div>
-               <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+               <label className="block text-sm font-semibold text-accent-foreground mb-2">Email Address *</label>
                <input
                   type="email"
                   value={data.email}
@@ -53,7 +53,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
             </div>
 
             <div>
-               <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+               <label className="block text-sm font-semibold text-accent-foreground  mb-2">Phone Number *</label>
                <input
                   type="tel"
                   value={data.phone}
@@ -66,7 +66,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
             </div>
 
             <div>
-               <label className="block text-sm font-semibold text-gray-700 mb-2">Address *</label>
+               <label className="block text-sm font-semibold text-accent-foreground  mb-2">Address *</label>
                <input
                   type="text"
                   value={data.address}
@@ -79,10 +79,10 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
          </div>
 
          <div className="border-t pt-6">
-            <h4 className="text-lg font-semibold text-gray-800 mb-4">Professional Links</h4>
+            <h4 className="text-lg font-semibold text-accent-foreground mb-4">Professional Links</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn URL</label>
+                  <label className="block text-sm font-medium text-accent-foreground mb-2">LinkedIn URL</label>
                   <input
                      type="url"
                      value={data.linkedin || ""}
@@ -93,7 +93,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                </div>
 
                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">GitHub URL</label>
+                  <label className="block text-sm font-medium text-accent-foreground mb-2">GitHub URL</label>
                   <input
                      type="url"
                      value={data.github || ""}
@@ -104,7 +104,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                </div>
 
                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Portfolio Website</label>
+                  <label className="block text-sm font-medium text-accent-foreground mb-2">Portfolio Website</label>
                   <input
                      type="url"
                      value={data.website || ""}

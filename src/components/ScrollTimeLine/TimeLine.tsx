@@ -102,22 +102,6 @@ const iconVariants: Variants = {
       },
    },
 };
-
-// Main component
-const TimelineSection: React.FC<TimelineSectionProps> = ({
-   title = "My Journey",
-   subtitle = "A timeline of my professional career and milestones",
-   items = defaultTimelineItems,
-   className = "",
-   showTags = true,
-   showImages = false,
-   animateOnScroll = true,
-}) => {
-   const [activeItem, setActiveItem] = useState<number | null>(null);
-   const timelineRef = useRef<HTMLDivElement>(null);
-   const isInView = useInView(timelineRef, { once: true, margin: "-50px" });
-
-   // Default timeline data
    const defaultTimelineItems: TimelineItem[] = [
       {
          id: 1,
@@ -183,6 +167,23 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({
          tags: ["HTML/CSS", "JavaScript", "Client Work", "Freelance"],
       },
    ];
+
+// Main component
+const TimelineSection: React.FC<TimelineSectionProps> = ({
+   title = "My Journey",
+   subtitle = "A timeline of my professional career and milestones",
+   items = defaultTimelineItems,
+   className = "",
+   showTags = true,
+   showImages = false,
+   animateOnScroll = true,
+}) => {
+   const [activeItem, setActiveItem] = useState<number | null>(null);
+   const timelineRef = useRef<HTMLDivElement>(null);
+   const isInView = useInView(timelineRef, { once: true, margin: "-50px" });
+
+   // Default timeline data
+
 
    const getTypeConfig = (type: TimelineItemType): TypeConfig => {
       const configs: Record<TimelineItemType, TypeConfig> = {

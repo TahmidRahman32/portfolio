@@ -1,7 +1,7 @@
 "use client"; // Add this at the top
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { backOut, easeInOut, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // You can replace this with your actual background image
@@ -25,7 +25,7 @@ const AboutHeader = () => {
          scale: 1,
          transition: {
             duration: 0.6,
-            ease: "back.out(1.7)",
+            ease: backOut,
          },
       },
    };
@@ -36,13 +36,13 @@ const AboutHeader = () => {
          transition: {
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: easeInOut,
          },
       },
    };
 
    return (
-      <motion.section ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} className="relative container mx-auto my-3 rounded-3xl flex items-center justify-center overflow-hidden">
+      <motion.section ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} className="relative  my-3  flex items-center justify-center overflow-hidden">
          {/* Background Image with Overlay - Using CSS background for demo */}
          <div className="absolute inset-0 z-0">
             {/* Using CSS background instead of Next.js Image for demo */}
@@ -60,7 +60,7 @@ const AboutHeader = () => {
 
             {/* Animated Gradient Overlay */}
             <motion.div
-               className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/30 to-pink-900/20"
+               className="absolute inset-0 bg-[#4b1614] dark:bg-[#4b1614]"
                animate={{
                   background: [
                      "linear-gradient(45deg, rgba(30, 58, 138, 0.2) 0%, rgba(88, 28, 135, 0.3) 50%, rgba(190, 24, 93, 0.2) 100%)",

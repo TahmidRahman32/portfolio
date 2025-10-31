@@ -9,9 +9,10 @@ import ChainCarousel, { ChainItem } from "./SkillCarousel";
 const AboutSection = () => {
    const [animated, setAnimated] = useState(false);
 
-   useEffect(() => {
-      setAnimated(true);
-   }, []);
+  useEffect(() => {
+     const id = requestAnimationFrame(() => setAnimated(true));
+     return () => cancelAnimationFrame(id);
+  }, []);
 
    const skills = [
       { name: "JavaScript", level: 90 },
@@ -63,17 +64,24 @@ const chainData: ChainItem[] = [
  
 ];
 
-   const [currentFact, setCurrentFact] = useState(0);
+ const [currentFact, setCurrentFact] = useState(0);
 
-   useEffect(() => {
-      const interval = setInterval(() => {
-         setCurrentFact((prev) => (prev + 1) % funFacts.length);
-      }, 5000);
-      return () => clearInterval(interval);
-   }, [funFacts.length]);
+
+useEffect(() => {
+   const id = requestAnimationFrame(() => setAnimated(true));
+   return () => cancelAnimationFrame(id);
+}, []);
+
+useEffect(() => {
+   const interval = setInterval(() => {
+      setCurrentFact((prev) => (prev + 1) % funFacts.length);
+   }, 5000);
+   return () => clearInterval(interval);
+}, [funFacts.length]);
+
 
    return (
-      <section id="about" className="py-16 px-4 rounded-2xl bg-gradient-to-br from-[#490b09] my-16 container mx-auto to-blue-900 text-white">
+      <section id="about" className="py-16 px-4 rounded-2xl bg-[#4b1614] dark:bg-[#4b1614] my-16 container mx-auto  text-white">
          <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">About Me</h2>
             <p className="text-center text-blue-200 mb-12 max-w-2xl mx-auto">Full Stack Developer passionate about creating digital experiences that make a difference</p>

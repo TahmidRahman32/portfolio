@@ -33,14 +33,15 @@ const SparkleNavbar: React.FC<SparkleNavbarProps> = ({ items, routes, color = "#
    const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
    // Update active index when route changes
-   useLayoutEffect(() => {
-      if (externalActiveIndex === undefined) {
-         const newActiveIndex = getInitialActiveIndex();
-         if (newActiveIndex !== internalActiveIndex) {
-            setInternalActiveIndex(newActiveIndex);
-         }
-      }
-   }, [pathname, externalActiveIndex]);
+  useLayoutEffect(() => {
+     const newActiveIndex = getInitialActiveIndex();
+
+     if (newActiveIndex !== internalActiveIndex) {
+        queueMicrotask(() => {
+           setInternalActiveIndex(newActiveIndex);
+        });
+     }
+  }, [pathname, externalActiveIndex, getInitialActiveIndex, internalActiveIndex]);
 
    // Function to create the SVG content for the active element.
    const createSVG = (element: HTMLDivElement) => {
@@ -82,10 +83,6 @@ const SparkleNavbar: React.FC<SparkleNavbarProps> = ({ items, routes, color = "#
       }
 
       const targetRoute = routes[index];
-
-       console.log("Button clicked:", index);
-       console.log("Target route:", routes[index]);
-       console.log("Current pathname:", pathname);
 
       // Call the external click handler if provided
       if (onItemClick) {
