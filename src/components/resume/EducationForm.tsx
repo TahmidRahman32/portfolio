@@ -54,7 +54,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="text"
                      value={currentEducation.institution}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, institution: e.target.value }))}
-                     className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 border text-gray-900 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="University Name"
                   />
                </div>
@@ -65,7 +65,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="text"
                      value={currentEducation.degree}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, degree: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="Bachelor of Science"
                   />
                </div>
@@ -78,7 +78,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="text"
                      value={currentEducation.fieldOfStudy}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, fieldOfStudy: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="Computer Science"
                   />
                </div>
@@ -89,7 +89,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="text"
                      value={currentEducation.gpa}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, gpa: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                      placeholder="3.8/4.0"
                   />
                </div>
@@ -102,7 +102,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="month"
                      value={currentEducation.startDate}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, startDate: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-accent-foreground bg-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                </div>
 
@@ -112,7 +112,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                      type="month"
                      value={currentEducation.endDate}
                      onChange={(e) => setCurrentEducation((prev) => ({ ...prev, endDate: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-accent-foreground bg-gray-400  border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                </div>
             </div>
@@ -122,7 +122,7 @@ export default function EducationForm({ education, onChange, errors }: Education
                <textarea
                   value={currentEducation.description}
                   onChange={(e) => setCurrentEducation((prev) => ({ ...prev, description: e.target.value }))}
-                  className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full p-3 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   placeholder="Relevant coursework, achievements, or honors..."
                   rows={3}
                />
@@ -143,7 +143,7 @@ export default function EducationForm({ education, onChange, errors }: Education
          {/* Education List */}
          <div className="space-y-4">
             {education.length === 0 && (
-               <div className="text-center py-8 text-gray-500">
+               <div className="text-center py-8 text-accent-foreground">
                   <svg className="w-12 h-12 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />

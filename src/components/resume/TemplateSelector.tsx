@@ -14,7 +14,7 @@ export default function TemplateSelector({ selectedTemplate, onTemplateSelect }:
    return (
       <div>
          <h3 className="text-xl font-semibold mb-4">Choose a Template</h3>
-         <p className="text-gray-600 mb-6">Select a resume template that best fits your style and industry. All templates are A4 format optimized for PDF.</p>
+         <p className="text-accent-foreground mb-6">Select a resume template that best fits your style and industry. All templates are A4 format optimized for PDF.</p>
 
          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
             {Object.values(TEMPLATES).map((template) => (

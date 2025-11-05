@@ -1,11 +1,11 @@
 // import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import { Facebook, Instagram, LucideLinkedin, TwitterIcon } from "lucide-react";
+import Link from "next/link";
 
 interface Footer7Props {
    logo?: {
       url: string;
-      src: string;
       alt: string;
       title: string;
    };
@@ -42,8 +42,7 @@ const defaultLegalLinks = [
 
 const Footer7 = ({
    logo = {
-      url: "https://www.shadcnblocks.com",
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
+      url: "",
       alt: "logo",
       title: "gaziur.tahmid@gmail.com",
    },
@@ -59,10 +58,7 @@ const Footer7 = ({
                <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
                   {/* Logo */}
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                     <a href={"/"}>
-                        <img src={logo.src} alt={logo.alt} title={logo.title} className="h-8" />
-                     </a>
-                     <h2 className="text-xl font-semibold">{logo.title}</h2>
+                     <h2 className="text-xl font-semibold font-primary-f">{logo.title}</h2>
                   </div>
                   <p className="text-muted-foreground  md:max-w-full text-sm text-center md:text-left">{description}</p>
                   <ul className="text-muted-foreground flex items-center space-x-6 justify-center">
@@ -75,9 +71,21 @@ const Footer7 = ({
                      ))}
                   </ul>
                </div>
-               {/* <div className=" w-full gap-6 md:grid-cols- lg:gap-20 ">
-                  <h2>handle after</h2>
-               </div> */}  
+               <div className=" w-full gap-6 md:grid-cols- lg:gap-20 ">
+                  <Link href={"/about"} className="font-primary-n hover:underline hover:text-blue-600 text-xl hover:scale-110 p-4 rounded-2xl  hover:shadow-xl transition-all duration-300 group ">
+                     About
+                  </Link>
+                  <Link href={"/services"} className="font-primary-n hover:underline hover:text-blue-600 text-xl hover:scale-110 p-4 rounded-2xl  hover:shadow-xl transition-all duration-300 group ">
+                     Services
+                  </Link>
+                  <Link href={"/contact"} className="font-primary-n hover:underline hover:text-blue-600 text-xl hover:scale-110 p-4 rounded-2xl  hover:shadow-xl transition-all duration-300 group ">
+                     Contact
+                  </Link>
+                  <Link href={"/resume"} className="font-primary-n hover:underline hover:text-blue-600 text-xl hover:scale-110 p-4 rounded-2xl  hover:shadow-xl transition-all duration-300 group ">
+                     Resume
+                  </Link>
+                  <p className="text-sm mt-6 text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus provident corrupti doloribus modi, sunt aliquam quasi accusamus quas magni, quos ea dignissimos saepe cum mollitia id error. Eaque, eligendi quasi.</p>
+               </div>
             </div>
             <div className="text-muted-foreground text-center mt-8 flex flex-col justify-between gap-4 border-t py-8 text-xs font-medium md:flex-row md:items-center md:text-left">
                <p className="order-2 lg:order-1">{copyright}</p>

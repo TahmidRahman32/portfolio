@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import Image from "next/image";
 import { SessionConfig } from "../sessions";
+import { ArrowLeft } from "lucide-react";
 
 
 export default function Dashboard() {
@@ -217,8 +218,9 @@ export default function Dashboard() {
                            <Link href="/resume" className="mt-4 md:mt-0 px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                               + Create New Resume
                            </Link>
-                           <Link href="/" className="mt-4 text-center md:mt-0 px-6 py-3 bg-gradient-to-r from-red-900 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                              - back to home
+                           <Link href="/" className="mt-4 text-center md:mt-0 px-6 py-3 bg-gradient-to-r from-red-900 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                              <ArrowLeft size={18} />
+                              Back to Home
                            </Link>
                         </div>
                      </div>

@@ -32,7 +32,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                   type="text"
                   value={data.fullName}
                   onChange={(e) => handleChange("fullName", e.target.value)}
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 text-gray-500 ${getFieldError("fullName") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
+                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200  ${getFieldError("fullName") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
                   placeholder="John Doe"
                   required
                />
@@ -45,7 +45,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                   type="email"
                   value={data.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 text-gray-500 ${getFieldError("email") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
+                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200  ${getFieldError("email") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
                   placeholder="john.doe@example.com"
                   required
                />
@@ -58,7 +58,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                   type="tel"
                   value={data.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 text-gray-500 ${getFieldError("phone") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
+                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200  ${getFieldError("phone") ? "border-red-500 bg-red-50" : "border-gray-300"}`}
                   placeholder="+1 (555) 123-4567"
                   required
                />
@@ -71,7 +71,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                   type="text"
                   value={data.address}
                   onChange={(e) => handleChange("address", e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500  focus:border-transparent transition-colors duration-200"
                   placeholder="City, State, Country"
                   required
                />
@@ -87,7 +87,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                      type="url"
                      value={data.linkedin || ""}
                      onChange={(e) => handleChange("linkedin", e.target.value)}
-                     className="w-full p-3 border border-gray-300 text-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                     className="w-full p-3 border border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
                      placeholder="https://linkedin.com/in/yourname"
                   />
                </div>
@@ -98,7 +98,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                      type="url"
                      value={data.github || ""}
                      onChange={(e) => handleChange("github", e.target.value)}
-                     className="w-full p-3 border border-gray-300 text-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                     className="w-full p-3 border border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
                      placeholder="https://github.com/yourname"
                   />
                </div>
@@ -109,7 +109,7 @@ export default function PersonalInfoForm({ data, onChange, errors }: PersonalInf
                      type="url"
                      value={data.website || ""}
                      onChange={(e) => handleChange("website", e.target.value)}
-                     className="w-full p-3 border border-gray-300 text-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
                      placeholder="https://yourportfolio.com"
                   />
                </div>

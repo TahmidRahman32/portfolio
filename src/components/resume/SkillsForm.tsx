@@ -113,8 +113,8 @@ export default function SkillsForm({ skills, onChange, errors }: SkillsFormProps
          {/* Skills List */}
          <div className="space-y-6">
             {skills.length === 0 && (
-               <div className="text-center py-8 text-gray-500">
-                  <svg className="w-12 h-12 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <div className="text-center py-8 text-accent-foreground">
+                  <svg className="w-12 h-12 mx-auto mb-3 text-accent-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                   <p>No skills added yet. Add your first skill above.</p>

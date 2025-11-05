@@ -140,7 +140,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
          {/* Projects List */}
          <div className="space-y-4">
             {projects.length === 0 && (
-               <div className="text-center py-8 text-gray-500">
+               <div className="text-center py-8 text-accent-foreground">
                   <svg className="w-12 h-12 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
@@ -169,7 +169,7 @@ export default function ProjectsForm({ projects, onChange }: ProjectsFormProps) 
                      </button>
                   </div>
 
-                  <p className="text-sm text-gray-700 mb-3">{project.description}</p>
+                  <p className="text-sm text-gray-7   00 mb-3">{project.description}</p>
 
                   {project.technologies.length > 0 && (
                      <div className="flex flex-wrap gap-2">

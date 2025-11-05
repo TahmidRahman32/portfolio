@@ -9,11 +9,16 @@ import { signOut, useSession } from "next-auth/react";
 
 export default function UserMenu() {
    const session = useSession({ required: false });
-
+   
    if (session.status !== "authenticated") {
       return null; // or a loading spinner, or a login button
    }
+ 
 
+  console.log("Session:", session); // 👈 should now show full user info
+   
+   
+   console.log(session)
    const Logout = ()=>{
       signOut();
       console.log("signout")

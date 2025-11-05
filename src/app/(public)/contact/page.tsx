@@ -69,7 +69,7 @@ const ContactPage = () => {
    };
 
    const socialLinks = [
-      { icon: Github, href: "https://github.com", label: "GitHub" },
+      { icon: Github, href: "https://github.com/TahmidRahman32", label: "GitHub" },
       { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
       { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
    ];

@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 
 import PasswordInput from "@/components/PaasCheck";
 
+
 // Zod validation schema
 const loginSchema = z.object({
    email: z.string().email("Please enter a valid email address"),
@@ -51,7 +52,12 @@ export default function LoginPage() {
          //    // router.push("/dashboard");
          // }
 
-         console.log("login", data);
+         signIn("credentials",{
+            ...data,
+            callbackUrl: "/"
+         });
+         
+         
       } catch (error) {
          setAuthError("An error occurred during login");
       } finally {

@@ -382,7 +382,7 @@ export default function ResumeBuilder() {
                            </div>
 
                            {/* Navigation Buttons */}
-                           <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
+                           <div className="flex justify-between items-center  mt-8 pt-6 border-t border-gray-200">
                               <button
                                  onClick={() => {
                                     const currentIndex = sectionButtons.findIndex((s) => s.id === activeSection);
@@ -391,7 +391,7 @@ export default function ResumeBuilder() {
                                     }
                                  }}
                                  disabled={activeSection === "template"}
-                                 className="px-6 py-3 border border-gray-300 text-foreground rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center gap-2"
+                                 className="px-6 py-3 border border-gray-300 text-foreground rounded-xl hover:bg-blue-600 hover:text-gray-50 bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center gap-2"
                               >
                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

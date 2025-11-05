@@ -3,10 +3,14 @@ import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signIn, getSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 import PasswordInput from "@/components/PaasCheck";
+import { register } from "@/actions/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
 // import { useRouter } from "next/router";
 
 // Zod validation schema
@@ -30,9 +34,9 @@ const registerSchema = z
 type RegisterFormData = z.infer<typeof registerSchema>;
 
 export default function RegisterPage() {
-   // const router = useRouter();
    const [isLoading, setIsLoading] = useState(false);
    const [authError, setAuthError] = useState("");
+   const router = useRouter();
 
    const { control, handleSubmit, formState } = useForm<RegisterFormData>({
       resolver: zodResolver(registerSchema),
@@ -49,42 +53,48 @@ export default function RegisterPage() {
    const onSubmit = async (data: RegisterFormData) => {
       setIsLoading(true);
       setAuthError("");
+      const userInfo = {
+         first_name: data.firstName,
+         last_name: data.lastName,
+         email: data.email,
+         password: data.password,
+      };
+
+      console.log("Sending to server action:", userInfo);
 
       try {
-         // Replace with your actual registration API call
-         // const response = await fetch("/api/auth/register", {
-         //    method: "POST",
-         //    headers: {
-         //       "Content-Type": "application/json",
-         //    },
-         //    body: JSON.stringify({
-         //       firstName: data.firstName,
-         //       lastName: data.lastName,
-         //       email: data.email,
-         //       password: data.password,
-         //    }),
-         // });
+         const res = await register(userInfo);
+         console.log("Full response from register:", res);
 
-         // if (response.ok) {
-         //    // Auto-login after successful registration
-         //    const result = await signIn("credentials", {
-         //       email: data.email,
-         //       password: data.password,
-         //       redirect: false,
-         //    });
+         // Check various possible success indicators
+         if (res?.id || res?.success || res?.userId || res?.data?.id) {
+            toast.success("Registration successful!");
+            router.push("/login");
+            console.log("Registration successful with response:", res);
+         } else {
+            console.log("Unexpected response format:", res);
+            setAuthError("Registration completed but unexpected response format");
+         }
+      } catch (error: any) {
+         console.log("Full error object:", error);
+         console.log("Error name:", error.name);
+         console.log("Error message:", error.message);
+         console.log("Error stack:", error.stack);
 
-         //    // if (result?.error) {
-         //    //    router.push("/login?message=Registration successful. Please sign in.");
-         //    // } else {
-         //    //    router.push("/dashboard");
-         //    // }
-         // } else {
-         //    const errorData = await response.json();
-         //    setAuthError(errorData.message || "Registration failed");
-         // }
-         console.log("data", data);
-      } catch (error) {
-         setAuthError("An error occurred during registration");
+         // More specific error handling
+         if (error.message.includes("Network error")) {
+            setAuthError("Cannot connect to server. Please check your internet connection.");
+         } else if (error.message.includes("400")) {
+            setAuthError("Invalid data provided. Please check your information.");
+         } else if (error.message.includes("409")) {
+            setAuthError("User with this email already exists.");
+         } else if (error.message.includes("500")) {
+            setAuthError("Server error. Please try again later.");
+         } else {
+            setAuthError(error.message || "Registration failed. Please try again.");
+         }
+
+         toast.error(error.message || "Registration failed");
       } finally {
          setIsLoading(false);
       }

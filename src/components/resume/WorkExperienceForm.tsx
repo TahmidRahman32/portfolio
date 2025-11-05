@@ -96,7 +96,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                      type="month"
                      value={currentExperience.startDate}
                      onChange={(e) => setCurrentExperience((prev) => ({ ...prev, startDate: e.target.value }))}
-                     className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     className="w-full p-3 text-accent-foreground bg-gray-400  border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                </div>
 
@@ -108,7 +108,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
                         value={currentExperience.endDate}
                         onChange={(e) => setCurrentExperience((prev) => ({ ...prev, endDate: e.target.value, current: false }))}
                         disabled={currentExperience.current}
-                        className="w-full p-3 text-gray-500 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                        className="w-full p-3 text-accent-foreground bg-gray-400  border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
                      />
                      <label className="flex items-center gap-2 whitespace-nowrap">
                         <input
@@ -185,7 +185,7 @@ export default function WorkExperienceForm({ experience, onChange }: WorkExperie
          {/* Experience List */}
          <div className="space-y-4">
             {experience.length === 0 && (
-               <div className="text-center py-8 text-gray-500">
+               <div className="text-center py-8 text-accent-foreground">
                   <svg className="w-12 h-12 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path
                         strokeLinecap="round"
