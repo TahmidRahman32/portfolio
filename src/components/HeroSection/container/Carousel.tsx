@@ -135,7 +135,7 @@ const ModernChainCarousel: React.FC<ChainCarouselProps> = ({ items, scrollSpeedM
          clearTimeout(timeoutId);
          timeoutId = setTimeout(() => {
             setIsPaused(false);
-         }, 800);
+         }, 600);
       };
 
       window.addEventListener("scroll", handleScroll, { passive: true });

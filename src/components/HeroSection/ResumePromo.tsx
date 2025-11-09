@@ -13,11 +13,34 @@ const variants = {
       scaleX: 1,
       transition: {
          duration: 1,
-         ease: [easeInOut, easeOut,], // ✅ use actual easing function
+         ease: [easeInOut, easeOut], // ✅ use actual easing function
       },
    },
 };
 
+// Scroll Indicator Variants
+const scrollIndicatorVariants = {
+   hidden: {
+      opacity: 0,
+      y: 20,
+   },
+   visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+         duration: 0.6,
+         ease: easeOut,
+      },
+   },
+   bouncing: {
+      y: [0, -8, 0],
+      transition: {
+         duration: 1.5,
+         repeat: Infinity,
+         ease: easeInOut,
+      },
+   },
+};
 
 // TypeScript interfaces
 interface Feature {
@@ -156,13 +179,14 @@ export default function ResumePromo() {
    const [isHovered, setIsHovered] = useState<boolean>(false);
    const [currentFeature, setCurrentFeature] = useState<number>(0);
    const [isVisible, setIsVisible] = useState<boolean>(false);
+   const [showScrollIndicator, setShowScrollIndicator] = useState<boolean>(true);
    const sectionRef = useRef<HTMLElement>(null);
    const textRef = useRef<HTMLDivElement>(null);
 
    // Scroll progress animation
    const { scrollYProgress } = useScroll({
       target: sectionRef,
-      offset: ["start end", "end start"],
+      offset: ["start center", "center end"],
    });
 
    // Transform scroll progress for various elements
@@ -172,6 +196,9 @@ export default function ResumePromo() {
 
    const cardRotation = useTransform(scrollYProgress, [0, 1], [-5, 5]);
    const cardY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+   // Scroll indicator opacity based on scroll progress
+   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.1, 0.8, 1], [1, 0.5, 0.2, 0]);
 
    const features: Feature[] = [
       {
@@ -247,6 +274,13 @@ export default function ResumePromo() {
          ([entry]) => {
             if (entry.isIntersecting) {
                setIsVisible(true);
+               // Hide scroll indicator after section is fully visible
+               setTimeout(() => {
+                  setShowScrollIndicator(false);
+               }, 3000);
+            } else {
+               setIsVisible(false);
+               setShowScrollIndicator(true);
             }
          },
          { threshold: 0.1 }
@@ -262,6 +296,41 @@ export default function ResumePromo() {
 
    return (
       <section id="resume-promo" ref={sectionRef} className="relative py-20 overflow-hidden bg-[#4b1614] dark:bg-[#4b1614] container mx-auto px-4 md:rounded-2xl mt-1 md:mt-0">
+         {/* Scroll Indicator */}
+         <AnimatePresence>
+            {showScrollIndicator && (
+               <motion.div variants={scrollIndicatorVariants} initial="hidden" animate="visible" exit="hidden" style={{ opacity: scrollIndicatorOpacity }} className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+                  <motion.div variants={scrollIndicatorVariants} animate="bouncing" className="flex flex-col items-center gap-2">
+                     <span className="text-white/80 text-sm font-medium tracking-wide">Scroll to explore</span>
+                     <motion.div
+                        className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center"
+                        animate={{
+                           borderColor: ["rgba(47, 106, 219, 0.96)", "rgba(47, 106, 219, 0.96)", "rgba(47, 106, 219, 0.96)"],
+                        }}
+                        transition={{
+                           duration: 2,
+                           repeat: Infinity,
+                           
+                        }}
+                     >
+                        <motion.div
+                           className="w-1 h-3 bg-blue-500/80 rounded-full mt-2"
+                           animate={{
+                              y: [0, 12, 0],
+                              opacity: [1, 0.5, 1],
+                           }}
+                           transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              ease: easeInOut,
+                           }}
+                        />
+                     </motion.div>
+                  </motion.div>
+               </motion.div>
+            )}
+         </AnimatePresence>
+
          {/* Animated Background Elements */}
          <div className="absolute inset-0 overflow-hidden">
             <motion.div variants={variants} className="absolute top-20 left-10 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20" animate="pulse" />
@@ -269,14 +338,7 @@ export default function ResumePromo() {
             <motion.div variants={variants} className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20" animate="pulse" transition={{ delay: 2 }} />
 
             {/* Scroll Progress Bar */}
-            <motion.div
-               className="absolute top-0 left-0 right-0 h-1  origin-left z-50"
-               style={{ scaleX: scrollYProgress }}
-               variants={scrollProgressVariants}
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-            />
+            <motion.div className="absolute top-0 left-0 right-0 h-1  origin-left z-50" style={{ scaleX: scrollYProgress }} variants={scrollProgressVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} />
 
             {/* Grid Pattern */}
             <div
