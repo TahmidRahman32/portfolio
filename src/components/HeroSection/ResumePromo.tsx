@@ -261,7 +261,7 @@ export default function ResumePromo() {
    }, []);
 
    return (
-      <section id="resume-promo" ref={sectionRef} className="relative py-20 overflow-hidden bg-[#4b1614] dark:bg-[#4b1614] container mx-auto px-4 rounded-2xl">
+      <section id="resume-promo" ref={sectionRef} className="relative py-20 overflow-hidden bg-[#4b1614] dark:bg-[#4b1614] container mx-auto px-4 md:rounded-2xl mt-1 md:mt-0">
          {/* Animated Background Elements */}
          <div className="absolute inset-0 overflow-hidden">
             <motion.div variants={variants} className="absolute top-20 left-10 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20" animate="pulse" />

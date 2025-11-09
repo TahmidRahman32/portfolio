@@ -203,7 +203,7 @@ const ModernChainCarousel: React.FC<ChainCarouselProps> = ({ items, scrollSpeedM
    return (
       <div id="explore-section" className={`relative  overflow-hidden ${className}`}>
          {/* Animated Background */}
-         <div className="absolute inset-0 md:my-4 container mx-auto rounded-2xl bg-[#4b1614] dark:bg-[#4b1614]">
+         <div className="absolute inset-0 md:my-4 container mx-auto md:rounded-2xl bg-[#4b1614] dark:bg-[#4b1614] mt-1 md:mt-0">
             {/* Animated particles/background elements */}
             <div className="absolute inset-0">
                <motion.div

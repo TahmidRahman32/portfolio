@@ -20,7 +20,7 @@ const AboutSection = () => {
       { name: "TypeScript", level: 80 },
       { name: "Node.js", level: 75 },
       { name: "Tailwind CSS", level: 95 },
-      { name: "GraphQL", level: 70 },
+      { name: "PostgresSQL", level: 70 },
    ];
 
    const funFacts = [
@@ -83,7 +83,7 @@ useEffect(() => {
    return (
       <section id="about" className="py-16 px-4 rounded-2xl bg-[#4b1614] dark:bg-[#4b1614] my-16 container mx-auto  text-white">
          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">About Me</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">My Skills & Journey</h2>
             <p className="text-center text-blue-200 mb-12 max-w-2xl mx-auto">Full Stack Developer passionate about creating digital experiences that make a difference</p>
 
             <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -95,7 +95,7 @@ useEffect(() => {
                      </div>
                      <div className="absolute -bottom-4 -right-4 bg-blue-600 text-white p-4 rounded-2xl shadow-lg">
                         <p className="text-sm font-bold">
-                           5+ Years
+                           3+ Years
                            <br />
                            Experience
                         </p>

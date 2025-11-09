@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { ModeToggle } from "../ThemeToggle";
 import SparkleNavbar from "../lightswind/sparkle-navbar";
 import Link from "next/link";
+import MobileMenu from "../moblie-menu";
 
 const teams = ["Acme Inc.", "coss.com", "Junon"];
 
@@ -17,14 +18,18 @@ export default function Navbar() {
    const id = useId();
 
    return (
-      <div className="container mx-auto">
-         <header className=" px-4 md:px-6 shadow container mx-auto rounded-full bg-input fixed z-50">
+      <div className="container mx-auto ">
+         <header className=" px-4 md:px-6 shadow container mx-auto md:rounded-full bg-input fixed z-50">
             <div className="flex h-16 items-center justify-between gap-4">
                {/* Left side */}
                <div className="flex flex-1 items-center gap-2">
                   {/* Mobile menu trigger */}
+                  <div className="flex  items-center md:hidden">
+                     {" "}
+                     <MobileMenu />
+                  </div>   
 
-                  <div className="flex items-center gap-6">
+                  <div className="md:flex items-center gap-6 hidden">
                      {/* Search form */}
                      <div className="relative">
                         <Input id={id} className="peer h-8 ps-8 pe-2" placeholder="Search..." type="search" />
@@ -40,8 +45,13 @@ export default function Navbar() {
                   <Link href="/about">About</Link>
                   <Link href="/services">Services</Link>
                   <Link href="/contact">Contact</Link>
+                  <Link href="/resume">Resume</Link>
+                  <Link href="/dashboard">Contact</Link>
                </div> */}
-               <SparkleNavbar items={["Home", "About", "Services", "Contact", "Resume", "Dashboard"]} routes={["/", "/about", "/services", "/contact", "/resume", "/dashboard"]} color="#7e0d09" />
+               <div className="hidden md:flex md:flex-1 md:justify-center gap-4">
+                  <SparkleNavbar items={["Home", "About", "Services", "Contact", "Resume", "Dashboard"]} routes={["/", "/about", "/services", "/contact", "/resume", "/dashboard"]} color="#7e0d09" />
+               </div>
+
                {/* Right side */}
                <div className="flex flex-1 items-center justify-end gap-4">
                   <div className="flex items-center gap-2">

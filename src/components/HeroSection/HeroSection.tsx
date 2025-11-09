@@ -95,7 +95,7 @@ const HeroSection = () => {
    }, []);
 
    return (
-      <div ref={sectionRef} className="container mx-auto justify-between items-center grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-4 p-4 bg-[#4b1614] dark:bg-[#4b1614] my-6 rounded-3xl ">
+      <div ref={sectionRef} className="container mx-auto justify-between items-center grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-4 p-4 bg-[#4b1614] dark:bg-[#4b1614] md:my-6 md:rounded-3xl ">
          {/* Left Column - Box1 */}
          <div className="flex flex-col justify-between">
             <div className="transform transition-all duration-500 hover:scale-105">

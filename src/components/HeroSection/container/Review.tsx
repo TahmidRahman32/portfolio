@@ -125,7 +125,7 @@ const ViewReview = () => {
    }
 
    return (
-      <div className=" container mx-auto rounded-t-2xl mb-1 bg-[#4b1614] dark:bg-[#4b1614] relative overflow-hidden">
+      <div className=" container mx-auto md:rounded-t-2xl mb-1 bg-[#4b1614] dark:bg-[#4b1614] relative overflow-hidden">
          {/* Animated Background Elements */}
          <div className="absolute inset-0">
             <motion.div

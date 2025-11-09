@@ -61,7 +61,7 @@ const chainData: ChainItem[] = [
 
 const HomePage = () => {
   return (
-     <div>
+     <div className="m-0 p-0">
         <HeroSection></HeroSection>
          <ResumePromo></ResumePromo>
         <Carousel items={chainData} visibleItemCount={3} scrollSpeedMs={2000} onChainSelect={(id, name) => console.log("Selected:", id, name)} />
